@@ -24,18 +24,6 @@ import static org.mockito.Mockito.*;
 public class OrderServiceTest {
 
     @Test
-    public void 주문을하면_OrderItem들의_가격을_합한_TotalCost를_계산한다() {
-    }
-
-    @Test
-    public void 등록되지않은_음료가_OrderItem에_포함되면_해당금액은_TotalCost에서_제외한다() {
-    }
-
-    @Test
-    public void 매월_마지막날에_주문하면_TotalCost에서_10퍼센트가_할인된다() {
-    }
-
-    @Test
     public void 현금으로_결제시_TotalCost의_10퍼센트를_마일리지로_적립한다() {
     }
 
@@ -57,5 +45,17 @@ public class OrderServiceTest {
 
     @Test
     public void 마일리지로_결제하지않는경우_마일리지API를_호출하여_마일리지를_적립한다() {
+    }
+
+    @Test
+    public void 주문을하면_OrderItem들의_가격을_합한_TotalCost를_계산한다() {
+    }
+
+    @Test
+    public void 등록되지않은_음료가_OrderItem에_포함되면_해당금액은_TotalCost에서_제외한다() {
+    }
+
+    @Test
+    public void 매월_마지막날에_주문하면_TotalCost에서_10퍼센트가_할인된다() {
     }
 }

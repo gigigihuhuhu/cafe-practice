@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.santa.cafe.singlesupply;
 
 class SingleSupplyManager {
     Item[] items;

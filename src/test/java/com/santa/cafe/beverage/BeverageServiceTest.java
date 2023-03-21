@@ -13,6 +13,8 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BeverageServiceTest {
@@ -34,5 +36,26 @@ public class BeverageServiceTest {
         List<Beverage> result = beverageService.getBeverages();
 
         assertThat(result).contains(americano, latte);
+        verify(mockBeverageRepository,times(1)).findAll();
+
+    }
+
+    @Test
+    public void whenCreateBeverage_ThenReturnBeverageList() {
+        //given
+        Beverage americano = new Beverage(1, "americano", 10, BeverageSize.SMALL);
+        Beverage latte = new Beverage(2, "latte", 20, BeverageSize.REGULAR);
+
+        List<Beverage> beverages = Lists.newArrayList(americano,latte);
+
+        given(mockBeverageRepository.saveAll(beverages)).willReturn(beverages);
+
+        //when
+        List<Beverage> result = beverageService.createBeverages(beverages);
+
+        //then
+        assertThat(result).contains(americano, latte);
+        verify(mockBeverageRepository,times(1)).saveAll(beverages);
+
     }
 }

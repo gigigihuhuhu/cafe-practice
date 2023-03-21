@@ -156,7 +156,7 @@ public class OrderService {
         return totalCost;
     }
 
-    private boolean isLastDayOfMonth() {
+    protected boolean isLastDayOfMonth() {
         Calendar cal = Calendar.getInstance();
         int lastDayOfMonth = cal.getActualMaximum(Calendar.DATE);
         int todayDate = cal.get(Calendar.DATE);
